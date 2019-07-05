@@ -1,9 +1,14 @@
 <html>
 <head>
+  <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://duckduckgo.com/r1798.css" type="text/css">
   <link rel="stylesheet" href="game2048.css" type="text/css">
   <script src="game2048.js"></script>
 </head>
-<body>
+<body onload="ia = DDH.game2048.build(); ia.onShow()">
 
 <!-- some content above the game2048 -->
 <div style="width:100%;height:50px;background:#ddd;padding:10px">
