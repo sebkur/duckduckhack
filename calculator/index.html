@@ -1,9 +1,14 @@
 <html>
 <head>
+  <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://duckduckgo.com/r1798.css" type="text/css">
   <link rel="stylesheet" href="calculator.css" type="text/css">
   <script src="calculator.js"></script>
 </head>
-<body>
+<body onload="ia = DDH.calculator.build({'data': {'query':'5+2'}}); ia.onShow()">
 
 <!-- some content above the calculator -->
 <div style="width:100%;height:50px;background:#ddd;padding:10px">

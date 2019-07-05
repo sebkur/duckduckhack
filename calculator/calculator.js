@@ -1,3 +1,5 @@
+DDH = {};
+
 DDH.calculator = DDH.calculator || {};
 
 (function(DDH) {
