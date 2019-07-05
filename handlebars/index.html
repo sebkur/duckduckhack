@@ -1,0 +1,27 @@
+<html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.js"></script>
+</head>
+<body>
+
+Testing Handlebars
+
+<script id="entry-template" type="text/x-handlebars-template">
+  <div class="entry">
+    <h1>{{title}}</h1>
+    <div class="body">
+      {{body}}
+    </div>
+  </div>
+</script>
+
+<script type="text/javascript">
+var source   = document.getElementById("entry-template").innerHTML;
+var template = Handlebars.compile(source);
+
+var context = {title: "My New Post", body: "This is my first post!"};
+var html    = template(context);
+document.write(html)
+</script>
+
+</body>
