@@ -1,0 +1,60 @@
+<html>
+<head>
+  <link rel="stylesheet" href="game2048.css" type="text/css">
+  <script src="game2048.js"></script>
+</head>
+<body>
+
+<!-- some content above the game2048 -->
+<div style="width:100%;height:50px;background:#ddd;padding:10px">
+Below is the game2048:
+</div>
+
+<!-- some wrapper divs code found by inspecting DDG website, to make CSS work -->
+<div id="zero_click_wrapper" class="zci-wrap">
+  <div class="zci  zci--game2048 is-active" id="zci-game2048">
+    <div class="cw">
+      <div class="zci__main  zci__main--detail  c-base">
+        <div class="zci__body">
+
+<!-- this is content.handlebars -->
+<div class="game2048__container">
+
+
+    <div id="game2048__area_container">
+        <div class="game2048__message">
+            <p></p>
+        </div>
+        <table id="game2048__area" class ="game2048__area" tabindex="0">
+            {{#loop 4}}
+                <tr>{{#loop 4}}<td class="cell val-"></td>{{/loop}}</tr>
+            {{/loop}}
+        </table>
+    </div>
+    
+    <div class="game2048__info">
+        <div class="game2048__counter">
+            <div class="game2048__points_addition"></div>
+            <div class="game2048__points">0</div>
+        </div>
+
+        <div class="game2048__help tx-clr--dark">
+            Use your <strong>arrow-keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one</strong>!
+        </div>
+
+        <button class="game2048__new_game">New Game</button>
+    </div>
+
+</div>
+<!-- end of content.handlebars -->
+
+<!-- end wrapper divs -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of wrapper divs -->
+
+</body>
+</html>
