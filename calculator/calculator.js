@@ -491,12 +491,14 @@ DDH.calculator = DDH.calculator || {};
 
         // show the user how the calculator evaluated it
         if(Utils.isInfinite(total)) {
-            Ledger.addToHistory(display.value, DDG.commifyNumber(total));
+            //Ledger.addToHistory(display.value, DDG.commifyNumber(total));
+            Ledger.addToHistory(display.value, total);
             display.value = "Infinity";
         } else if(Utils.isNan(total)) {
             display.value = "Error";
         } else {
-            Ledger.addToHistory(display.value, DDG.commifyNumber(total));
+            //Ledger.addToHistory(display.value, DDG.commifyNumber(total));
+            Ledger.addToHistory(display.value, total);
             display.value = total;
         }
 
@@ -912,7 +914,7 @@ DDH.calculator = DDH.calculator || {};
                     $calcInput.focus();
                 }
 
-                DDG.require('math.js', function() {
+                (function() {
 
                     var display = $('#display')[0];
                     var deviceType;
@@ -931,13 +933,13 @@ DDH.calculator = DDH.calculator || {};
                      * Mobile -> touchstart (event fired when a touch point is placed on a touch surface)
                      * Desktop / Laptop -> click (event fired when a mouse is clicked on screen)
                      */
-                    if(DDG.device.isMobile || DDG.device.isMobileDevice) {
-                        // mobile
-                        deviceType = 'touchend';
-                    } else {
-                        // everything else
+                    //if(DDG.device.isMobile || DDG.device.isMobileDevice) {
+                    //    // mobile
+                    //    deviceType = 'touchend';
+                    //} else {
+                    //    // everything else
                         deviceType = 'click';
-                    }
+                    //}
 
                     if(!initialized) {
 
@@ -1053,7 +1055,7 @@ DDH.calculator = DDH.calculator || {};
                     // initialized. We no longer need to bind the buttons
                     initialized = true;
 
-                }); // DDG.require('math.js')
+                }()); // DDG.require('math.js')
             }
         };
     };
