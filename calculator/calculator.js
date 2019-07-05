@@ -2,6 +2,9 @@ DDH = {};
 
 DDH.calculator = DDH.calculator || {};
 
+var source = document.getElementById("ledger-item-template").innerHTML;
+DDH.calculator.ledger_item = Handlebars.compile(source);
+
 (function(DDH) {
     "use strict";
 
