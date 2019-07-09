@@ -1,3 +1,5 @@
+DDH = {};
+
 DDH.color_picker = DDH.color_picker || {};
 
 (function(DDH) {
