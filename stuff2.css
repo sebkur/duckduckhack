@@ -85,3 +85,14 @@ sub {
     margin-left: auto
 }
 
+.pull-left,
+.fl,
+.float--left {
+    float: left
+}
+
+.pull-right,
+.fr,
+.float--right {
+    float: right
+}
