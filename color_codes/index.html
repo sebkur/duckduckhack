@@ -1,0 +1,99 @@
+<html>
+<head>
+  <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.js"></script>
+  <link rel="stylesheet" href="../stuff1.css" type="text/css">
+  <link rel="stylesheet" href="../stuff2.css" type="text/css">
+  <link rel="stylesheet" href="color_codes.css" type="text/css">
+
+  <script id="color-codes-template" type="text/x-handlebars-template">
+<a href='/?q=color%20picker%20%23{{hex_code}}' class='colorcodesbox circle' style='background:#{{hex_code}}'/>
+<div class='column1 tx-clr--dk2'>
+    <p class='hex tx-clr--dk zci__caption'>{{hexc}}</p>
+    <p class='no_vspace'>{{rgb}}</p>
+    <p class='no_vspace'>{{hslc}}</p>
+    <p class='no_vspace'>{{cmyb}}</p>
+    <p>
+        <a href='http://labs.tineye.com/multicolr/#colors={{hex_code}};weights=100;' class='tx-clr--dk2'>Images</a>
+          <span class='separator'> | </span>
+        <a href='http://www.color-hex.com/color/{{hex_code}}' title='Tints, information and similar colors on color-hex.com' class='tx-clr--dk2'>Info</a>
+          <span class='separator'> | </span>
+        <a href='/?q=color%20picker%20%23{{hex_code}}' class='tx-clr--dk2'>Picker</a>
+    </p>
+</div>
+{{#if show_column_2}}
+<div class='column2 tx-clr--dk2'>
+    <div class='complementary'>
+        <div class='cols_column'>
+              <a href='/?q=color%20picker%20%23{{complementary}}' class='mini-color circle' style='background: #{{complementary}}'>
+              </a>
+        </div>
+        <div class='desc_column'>
+            <p class='no_vspace'>Complementary #:</p><p class='no_vspace'>
+                <a onclick='document.x.q.value="#{{complementary}}";document.x.q.focus();' href='javascript:' class='tx-clr--lt'>{{complementary}}</a>
+            </p>
+        </div>
+
+    </div>
+    <div>
+        <div class='cols_column'>
+            {{#each analogous}}
+                <a href='/?q=color%20picker%20%23{{analogous}}' class='mini-color circle' style='background: #{{this}}'> </a>
+            {{/each}}
+        </div>
+        <div class='desc_column'>
+            <p class='no_vspace'>Analogous #:</p>
+            <p class='no_vspace'>
+                {{#each analogous}}
+                    <a onclick='document.x.q.value=#{{this}} document.x.q.focus();' href='javascript:' class='tx-clr--lt'>{{this}}</a>
+                {{/each}}
+            </p>
+        </div>
+    </div>
+</div>
+{{/if}}
+  </script>
+
+  <script type="text/javascript">
+    function addContent() {
+      var source = document.getElementById("color-codes-template").innerHTML;
+      var compiled = Handlebars.compile(source);
+      var html = compiled({'hex_code':'FF8891', 'hexc':'Hex: #FF8891', 'rgb':'RGBA(255, 136, 145, 1)', 'hslc':'HSL(355, 100%, 77%)', 'cmyb':'CMYB(0%, 47%, 43%, 0%)', 'show_column_2':'true', 'analogous':['FFB987', 'FF87CD'], 'complementary':'87FFF5'});
+      $(".zci__body").append(html);
+    }
+  </script>
+
+  <script src="color_codes.js"></script>
+</head>
+<body onload="addContent(); ia = DDH.color_codes.build({'data': {'color':'#ffdd00'}}); ia.onShow()">
+
+<!-- some content above the instant answer -->
+<div style="width:100%;background:#ddd">
+  <div style="padding:10px">
+    <a style="float:right" href="https://github.com/sebkur/duckduckhack/tree/master/color_codes">See on Github</a>
+    <a href="../">Back to index</a>
+    <br/><br/>
+    Below is the color codes answer:
+  </div>
+</div>
+
+<!-- some wrapper divs code found by inspecting DDG website, to make CSS work -->
+<div id="zero_click_wrapper" class="zci-wrap">
+  <div class="zci  zci--color_codes is-active" id="zci-color_codes">
+    <div class="cw">
+      <div class="zci__main  zci__main--detail  c-base">
+        <div class="zci__body">
+
+<!-- end wrapper divs -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end of wrapper divs -->
+
+</body>
+</html>
